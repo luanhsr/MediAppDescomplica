@@ -4,11 +4,6 @@ const Schema = mongoose.Schema;
 
 const pacientSchema = new Schema({
 
-    pacientId: {
-        type: String,
-        required: [true, "Pacient ID is required"],
-        unique: true
-    },
     name: {
         type: String,
         required: [true, "Name is required"]
