@@ -1,4 +1,4 @@
-import {mongoose} from "mongoose";
+import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 
@@ -17,7 +17,7 @@ const doctorSchema = new Schema({
         type: String,
         required: [true, "Password is required"]
     },
-    medicalSpeciality: {
+    medicalSpecialty: {
         type: String,
         required: [true, "Medical specialty is required"]
     },
@@ -42,5 +42,5 @@ const doctorSchema = new Schema({
     }
 });
 
-const doctor = mongoose.model("Doctor", doctorSchema);
-export default doctor;
+const Doctor = mongoose.model("Doctor", doctorSchema);
+export default Doctor;

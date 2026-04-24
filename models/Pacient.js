@@ -1,16 +1,14 @@
-import {mongoose} from "mongoose";
+import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 
 const pacientSchema = new Schema({
-
     name: {
         type: String,
         required: [true, "Name is required"]
     }, 
     birthDate: {
-        type: Date,
-        required: [false, "Birth date is not obligatory"]
+        type: Date
     },
     email: {
         type: String,
@@ -27,3 +25,7 @@ const pacientSchema = new Schema({
         default: Date.now
     }
 });
+
+const Pacient = mongoose.model("Pacient", pacientSchema);
+
+export default Pacient;
