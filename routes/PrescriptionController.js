@@ -74,8 +74,13 @@ router.post("/postPrescription", async function(req, res){
         const prescription = await PrescriptionService.savePrescription({ date, appointmentId, medicine, dosage, instructions });
         res.status(201).send(prescription);
     } catch (error) {
-        console.error(error);
-        res.status(500).send(error);
+        console.error("🔥 ERRO COMPLETO:", error);
+
+        res.status(500).json({
+            message: error.message,
+            name: error.name,
+            stack: error.stack
+        });
     }
 });
 
