@@ -3,6 +3,7 @@ import AppointmentService from '../services/AppointmentService.js';
 
 let router = express.Router();
 
+// pega todos os agendamentos
 router.get('/appointments', async (req, res) => {
     try {
         const appointments = await AppointmentService.getAllAppointments();
