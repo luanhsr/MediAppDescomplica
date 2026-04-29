@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import Pacient from "./Pacient";
+import Pacient from "./Pacient.js";
 
 const Schema = mongoose.Schema;
 
@@ -33,6 +33,8 @@ const appointmentSchema = new Schema({
         default: Date.now
     }
 });
+
+
 
 const Appointment = mongoose.model('Appointment', appointmentSchema);
 

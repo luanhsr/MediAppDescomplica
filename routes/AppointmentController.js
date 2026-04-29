@@ -28,12 +28,12 @@ router.post('/postAppointments', async (req, res) => {
         console.log("BODY:", req.body); // 👈 DEBUG
 
         // 🔥 CORREÇÃO AQUI
-        const { date, doctorId, patientId } = req.body;
+        const { date, doctorId, pacientId } = req.body;
 
         const appointment = await AppointmentService.saveAppointment(
             date,
             doctorId,
-            patientId
+            pacientId
         );
 
         res.status(201).send(appointment);
@@ -46,12 +46,12 @@ router.post('/postAppointments', async (req, res) => {
 router.put('/appointments/:id', async (req, res) => {
     const { id } = req.params;
     try {
-        const { date, doctorId, patientId } = req.body;
+        const { date, doctorId, pacientId } = req.body;
 
         const appointment = await AppointmentService.updateAppointment(id, {
             date,
             doctorId,
-            patientId
+            pacientId
         });
 
         res.send(appointment);
@@ -63,18 +63,18 @@ router.put('/appointments/:id', async (req, res) => {
 
 router.delete('/appointments/:id', async (req, res) => {
     const { id } = req.params;
-    try {
-        const appointment = await AppointmentService.deleteAppointment(id);
-        res.send(appointment);
-    }catch (error) {
-    console.error("🔥 ERRO COMPLETO:", error);
+        try {
+            const appointment = await AppointmentService.deleteAppointment(id);
+            res.send(appointment);
+        }catch (error) {
+        console.error("🔥 ERRO COMPLETO:", error);
 
-    res.status(500).json({
-        message: error.message,
-        stack: error.stack,
-        name: error.name
-    });
-}
+        res.status(500).json({
+            message: error.message,
+            stack: error.stack,
+            name: error.name
+        });
+    }
+
 });
-
 export default router;
