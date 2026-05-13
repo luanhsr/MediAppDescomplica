@@ -93,7 +93,7 @@ router.put('/reschedule/:id', async (req, res)=> {
                 message: error.message,
                 stack: error.stack,
                 name: error.name
-            });s
+            });
         }
 });
 export default router;
